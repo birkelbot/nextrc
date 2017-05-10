@@ -1,160 +1,217 @@
 /*
-	Overflow by HTML5 UP
+	Highlights by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	var settings = {
-
-		// Full screen header?
-			fullScreenHeader: true,
-
-		// Parallax background effect?
-			parallax: true,
-
-		// Parallax factor (lower = more intense, higher = less intense).
-			parallaxFactor: 10
-
-	};
-
 	skel.breakpoints({
-		wide: '(max-width: 1680px)',
-		normal: '(max-width: 1080px)',
-		narrow: '(max-width: 840px)',
-		mobile: '(max-width: 736px)'
+		large: '(max-width: 1680px)',
+		medium: '(max-width: 980px)',
+		small: '(max-width: 736px)',
+		xsmall: '(max-width: 480px)'
 	});
 
 	$(function() {
 
 		var	$window = $(window),
-			$body = $('body');
-
-		if (skel.vars.mobile) {
-
-			settings.parallax = false;
-			$body.addClass('is-scroll');
-
-		}
+			$body = $('body'),
+			$html = $('html');
 
 		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+			$html.addClass('is-loading');
 
 			$window.on('load', function() {
-				$body.removeClass('is-loading');
+				window.setTimeout(function() {
+					$html.removeClass('is-loading');
+				}, 0);
 			});
 
-		// CSS polyfills (IE<9).
-			if (skel.vars.IEVersion < 9)
-				$(':last-child').addClass('last-child');
+		// Touch mode.
+			if (skel.vars.mobile) {
+
+				var $wrapper;
+
+				// Create wrapper.
+					$body.wrapInner('<div id="wrapper" />');
+					$wrapper = $('#wrapper');
+
+					// Hack: iOS vh bug.
+						if (skel.vars.os == 'ios')
+							$wrapper
+								.css('margin-top', -25)
+								.css('padding-bottom', 25);
+
+					// Pass scroll event to window.
+						$wrapper.on('scroll', function() {
+							$window.trigger('scroll');
+						});
+
+				// Scrolly.
+					$window.on('load.hl_scrolly', function() {
+
+						$('.scrolly').scrolly({
+							speed: 1500,
+							parent: $wrapper,
+							pollOnce: true
+						});
+
+						$window.off('load.hl_scrolly');
+
+					});
+
+				// Enable touch mode.
+					$html.addClass('is-touch');
+
+			}
+			else {
+
+				// Scrolly.
+					$('.scrolly').scrolly({
+						speed: 1500
+					});
+
+			}
 
 		// Fix: Placeholder polyfill.
 			$('form').placeholder();
 
-		// Prioritize "important" elements on mobile.
-			skel.on('+mobile -mobile', function() {
+		// Prioritize "important" elements on medium.
+			skel.on('+medium -medium', function() {
 				$.prioritize(
-					'.important\\28 mobile\\29',
-					skel.breakpoint('mobile').active
+					'.important\\28 medium\\29',
+					skel.breakpoint('medium').active
 				);
 			});
 
-		// Scrolly links.
-			$('.scrolly-middle').scrolly({
-				speed: 1000,
-				anchor: 'middle'
-			});
+		// Header.
+			var $header = $('#header'),
+				$headerTitle = $header.find('header'),
+				$headerContainer = $header.find('.container');
 
-			$('.scrolly').scrolly({
-				speed: 1000,
-				offset: function() { return (skel.breakpoint('mobile').active ? 70 : 190); }
-			});
+			// Make title fixed.
+				if (!skel.vars.mobile) {
 
-		// Full screen header.
-			if (settings.fullScreenHeader) {
+					$window.on('load.hl_headerTitle', function() {
 
-				var $header = $('#header');
+						skel.on('-medium !medium', function() {
 
-				if ($header.length > 0) {
+							$headerTitle
+								.css('position', 'fixed')
+								.css('height', 'auto')
+								.css('top', '50%')
+								.css('left', '0')
+								.css('width', '100%')
+								.css('margin-top', ($headerTitle.outerHeight() / -2));
 
-					var $header_header = $header.find('header');
+						});
 
-					$window
-						.on('resize.overflow_fsh', function() {
+						skel.on('+medium', function() {
 
-							if (skel.breakpoint('mobile').active)
-								$header.css('padding', '');
-							else {
+							$headerTitle
+								.css('position', '')
+								.css('height', '')
+								.css('top', '')
+								.css('left', '')
+								.css('width', '')
+								.css('margin-top', '');
 
-								var p = Math.max(192, ($window.height() - $header_header.outerHeight()) / 2);
-								$header.css('padding', p + 'px 0 ' + p + 'px 0');
+						});
 
-							}
+						$window.off('load.hl_headerTitle');
 
-						})
-						.trigger('resize.overflow_fsh');
-
-					$window.load(function() {
-						$window.trigger('resize.overflow_fsh');
 					});
 
 				}
 
-			}
+			// Scrollex.
+				skel.on('-small !small', function() {
+					$header.scrollex({
+						terminate: function() {
 
-		// Parallax background.
+							$headerTitle.css('opacity', '');
 
-			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
-				if (skel.vars.browser == 'ie'
-				||	skel.vars.mobile)
-					settings.parallax = false;
+						},
+						scroll: function(progress) {
 
-			if (settings.parallax) {
+							// Fade out title as user scrolls down.
+								if (progress > 0.5)
+									x = 1 - progress;
+								else
+									x = progress;
 
-				var $dummy = $(), $bg;
+								$headerTitle.css('opacity', Math.max(0, Math.min(1, x * 2)));
 
-				$window
-					.on('scroll.overflow_parallax', function() {
+						}
+					});
+				});
 
-						// Adjust background position.
-							$bg.css('background-position', 'center ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+				skel.on('+small', function() {
 
-					})
-					.on('resize.overflow_parallax', function() {
+					$header.unscrollex();
 
-						// If we're in a situation where we need to temporarily disable parallax, do so.
-							if (!skel.breakpoint('wide').active
-							||	skel.breakpoint('narrow').active) {
+				});
 
-								$body.css('background-position', '');
-								$bg = $dummy;
+		// Main sections.
+			$('.main').each(function() {
 
-							}
+				var $this = $(this),
+					$primaryImg = $this.find('.image.primary > img'),
+					$bg,
+					options;
 
-						// Otherwise, continue as normal.
-							else
-								$bg = $body;
+				// No primary image? Bail.
+					if ($primaryImg.length == 0)
+						return;
 
-						// Trigger scroll handler.
-							$window.triggerHandler('scroll.overflow_parallax');
+				// Hack: IE8 fallback.
+					if (skel.vars.IEVersion < 9) {
 
-					})
-					.trigger('resize.overflow_parallax');
+						$this
+							.css('background-image', 'url("' + $primaryImg.attr('src') + '")')
+							.css('-ms-behavior', 'url("css/ie/backgroundsize.min.htc")');
 
-			}
+						return;
 
-		// Poptrox.
-			$('.gallery').poptrox({
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#0a1919',
-				overlayOpacity: (skel.vars.IEVersion < 9 ? 0 : 0.75),
-				usePopupDefaultStyling: false,
-				usePopupCaption: true,
-				popupLoaderText: '',
-				windowMargin: 10,
-				usePopupNav: true
+					}
+
+				// Create bg and append it to body.
+					$bg = $('<div class="main-bg" id="' + $this.attr('id') + '-bg"></div>')
+						.css('background-image', (
+							'url("assets/css/images/overlay.png"), url("' + $primaryImg.attr('src') + '")'
+						))
+						.appendTo($body);
+
+				// Scrollex.
+					options = {
+						mode: 'middle',
+						delay: 200,
+						top: '-10vh',
+						bottom: '-10vh'
+					};
+
+					if (skel.canUse('transition')) {
+
+						options.init = function() { $bg.removeClass('active'); };
+						options.enter = function() { $bg.addClass('active'); };
+						options.leave = function() { $bg.removeClass('active'); };
+
+					}
+					else {
+
+						$bg
+							.css('opacity', 1)
+							.hide();
+
+						options.init = function() { $bg.fadeOut(0); };
+						options.enter = function() { $bg.fadeIn(400); };
+						options.leave = function() { $bg.fadeOut(400); };
+
+					}
+
+					$this.scrollex(options);
+
 			});
 
 	});
