@@ -18,7 +18,7 @@
         boxModel: 'border',
         grid: ( gutters: 1.5em ),
         conditionals: true,
-        containers: 35em,
+        containers: 50em,
         breakpoints: (
             large: (
             ),
@@ -113,6 +113,25 @@
 
         &.no-wrap {
             overflow: hidden;
+        }
+    }
+
+    div, span {
+        .space-right {
+            margin-right: 0.35em;
+        }
+
+        .row-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .column-layout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     }
 
@@ -605,10 +624,11 @@
 
         img {
             display: block;
+            width: 100%;
         }
 
         &.left {
-            float: left;
+            float: left;    
             margin: 0 1.5em 1em 0;
             top: 0.25em;
         }
@@ -622,37 +642,26 @@
         &.left,
         &.right {
             max-width: 40%;
-
-            img {
-                width: 100%;
-            }
         }
 
-        &.is-own-column {
-            height: 100%;
-            // padding: auto 0;
+        &.tight {
+            margin: 1em;
+            max-width: 40%;
         }
 
         &.fit {
             display: block;
             margin: 0 0 _size(element-margin) 0;
             width: 100%;
-
-            img {
-                width: 100%;
-            }
         }
-    }
 
-    img {
         &.inline {
-            display: inline-block;
             max-height: 100%;
             max-width: 100%;
+        }
 
-            &.logo {
-                width: 4em;
-            }
+        &.logo {
+            width: 3.2em;
         }
     }
 
@@ -996,13 +1005,15 @@
             opacity: 0.25;
         }
 
-        div {
-            height: 100%;
-            display: inline-block;
+        &.flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        img {
-            vertical-align: middle;
+        div {
+            margin-top: auto;
+            margin-bottom: auto;
         }
     }
 
@@ -1136,7 +1147,7 @@
             background: transparentize(_palette(bg), 0.05);
             bottom: 0;
             left: 50%;
-            margin-left: -17.5em;
+            margin-left: -25em;
             padding: $size-padding-lr;
             position: absolute;
 
