@@ -125,6 +125,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 2em 0;
         }
 
         .column-layout {
@@ -132,6 +133,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .grow {
+            flex-grow: 1;
         }
     }
 
@@ -625,8 +630,16 @@
         img {
             display: block;
             width: 100%;
-        }
+        }        
 
+        &.fit {
+            display: block;
+            margin: 0 0 _size(element-margin) 0;
+            width: 100%;
+        }
+    }
+
+    img {
         &.left {
             float: left;    
             margin: 0 1.5em 1em 0;
@@ -649,19 +662,19 @@
             max-width: 40%;
         }
 
-        &.fit {
-            display: block;
-            margin: 0 0 _size(element-margin) 0;
-            width: 100%;
-        }
-
         &.inline {
+            display: inline-block;
             max-height: 100%;
             max-width: 100%;
         }
 
         &.logo {
             width: 3.2em;
+        }
+
+        &.next-overview-icon {
+            margin: 1em;
+            width: 25%;
         }
     }
 

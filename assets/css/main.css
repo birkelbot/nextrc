@@ -1065,12 +1065,15 @@ div .space-right, span .space-right {
 div .row-layout, span .row-layout {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin: 2em 0; }
 div .column-layout, span .column-layout {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+div .grow, span .grow {
+  flex-grow: 1; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #61686b;
@@ -1660,28 +1663,33 @@ input[type="radio"] + label:before {
   .image img {
     display: block;
     width: 100%; }
-  .image.left {
-    float: left;
-    margin: 0 1.5em 1em 0;
-    top: 0.25em; }
-  .image.right {
-    float: right;
-    margin: 0 0 1em 1.5em;
-    top: 0.25em; }
-  .image.left, .image.right {
-    max-width: 40%; }
-  .image.tight {
-    margin: 1em;
-    max-width: 40%; }
   .image.fit {
     display: block;
     margin: 0 0 2em 0;
     width: 100%; }
-  .image.inline {
-    max-height: 100%;
-    max-width: 100%; }
-  .image.logo {
-    width: 3.2em; }
+
+img.left {
+  float: left;
+  margin: 0 1.5em 1em 0;
+  top: 0.25em; }
+img.right {
+  float: right;
+  margin: 0 0 1em 1.5em;
+  top: 0.25em; }
+img.left, img.right {
+  max-width: 40%; }
+img.tight {
+  margin: 1em;
+  max-width: 40%; }
+img.inline {
+  display: inline-block;
+  max-height: 100%;
+  max-width: 100%; }
+img.logo {
+  width: 3.2em; }
+img.next-overview-icon {
+  margin: 1em;
+  width: 25%; }
 
 /* List */
 ol {
