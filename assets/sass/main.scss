@@ -640,28 +640,6 @@
     }
 
     img {
-        &.left {
-            float: left;    
-            margin: 0 1.5em 1em 0;
-            top: 0.25em;
-        }
-
-        &.right {
-            float: right;
-            margin: 0 0 1em 1.5em;
-            top: 0.25em;
-        }
-
-        &.left,
-        &.right {
-            max-width: 40%;
-        }
-
-        &.tight {
-            margin: 1em;
-            max-width: 40%;
-        }
-
         &.inline {
             display: inline-block;
             max-height: 100%;
@@ -675,6 +653,19 @@
         &.next-overview-icon {
             margin: 1em;
             width: 25%;
+
+            &.left {
+                margin-right: 3em;
+            }
+
+            &.right {
+                margin-left: 3em;
+            }
+        }
+
+        &.the-game-icon {
+            margin: 1em;
+            width: 30%;
         }
     }
 
@@ -751,10 +742,12 @@
                 }
 
                 &:nth-child(2n + 1) {
+                    // Use box-shadow to draw the vertical separator
                     box-shadow: inset -1px 0 0 0 _palette(border), 1px 0 0 0 _palette(border);
                 }
 
                 &:nth-child(2n + 3) {
+                    // Use the before pseudo-element to draw the horizontal separator
                     &:before {
                         background: _palette(border);
                         content: '';

@@ -1668,19 +1668,6 @@ input[type="radio"] + label:before {
     margin: 0 0 2em 0;
     width: 100%; }
 
-img.left {
-  float: left;
-  margin: 0 1.5em 1em 0;
-  top: 0.25em; }
-img.right {
-  float: right;
-  margin: 0 0 1em 1.5em;
-  top: 0.25em; }
-img.left, img.right {
-  max-width: 40%; }
-img.tight {
-  margin: 1em;
-  max-width: 40%; }
 img.inline {
   display: inline-block;
   max-height: 100%;
@@ -1690,6 +1677,13 @@ img.logo {
 img.next-overview-icon {
   margin: 1em;
   width: 25%; }
+  img.next-overview-icon.left {
+    margin-right: 3em; }
+  img.next-overview-icon.right {
+    margin-left: 3em; }
+img.the-game-icon {
+  margin: 1em;
+  width: 30%; }
 
 /* List */
 ol {
