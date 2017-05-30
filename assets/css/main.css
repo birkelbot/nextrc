@@ -1003,11 +1003,11 @@ body {
 /* Basic */
 html {
   background-color: #313a3d;
-  background-attachment: fixed,                     fixed;
-  background-image: url("images/overlay.png"), url("../../images/competition2_edited.jpg");
-  background-position: top left,                  center center;
-  background-repeat: repeat,                    none;
-  background-size: auto,                      cover; }
+  background-attachment: fixed;
+  background-image: url("images/overlay.png");
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: auto; }
 
 html.is-loading body *, html.is-loading body *:before, html.is-loading body *:after {
   -moz-animation: none !important;
@@ -1647,27 +1647,6 @@ input[type="radio"] + label:before {
       font-size: 2.5em; }
 
 /* Image */
-.image {
-  border: 0;
-  display: inline-block;
-  position: relative; }
-  .image:before {
-    background: url("images/overlay.png");
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%; }
-  .image img {
-    display: block;
-    width: 100%; }
-  .image.fit {
-    display: block;
-    margin: 0 0 2em 0;
-    width: 100%; }
-
 img.inline {
   display: inline-block;
   max-height: 100%;
@@ -1684,6 +1663,8 @@ img.next-overview-icon {
 img.the-game-icon {
   margin: 1em;
   width: 30%; }
+img.bg {
+  display: none; }
 
 /* List */
 ol {
@@ -1969,6 +1950,10 @@ button,
   -webkit-transition: opacity 0.5s ease-out;
   -ms-transition: opacity 0.5s ease-out;
   transition: opacity 0.5s ease-out;
+  -moz-filter: blur(1.5px);
+  -webkit-filter: blur(1.5px);
+  -ms-filter: blur(1.5px);
+  filter: blur(1.5px);
   background-attachment: fixed,      fixed;
   background-position: top left,   center center;
   background-repeat: repeat,     none;
@@ -1981,7 +1966,7 @@ button,
   width: 100%;
   z-index: -1; }
   .main-bg.active {
-    opacity: 1; }
+    opacity: 0.7; }
 
 /* Main */
 .main {
@@ -2115,14 +2100,7 @@ button,
     font-size: 12pt; } }
 /* Medium */
 @media screen and (max-width: 980px) {
-  /* Main BG */
-  .main-bg {
-    display: none; }
-
   /* Main */
-  .main .image.primary {
-    display: block;
-    margin: 0 0 4em 0; }
   .main .container {
     padding: 3em 3em 8em 3em ; }
     .main .container:before {
@@ -2155,8 +2133,6 @@ button,
   /* Main */
   .main .container {
     padding: 3em 1.5em 1em 1.5em ; }
-    .main .container .image.primary:first-child {
-      margin: -1.5em 0 2.5em 0; }
   .main .goto-next {
     display: none; }
 
@@ -2229,11 +2205,14 @@ button,
     .button.icon {
       padding-left: 0; }
 
+  /* Container */
+  .container {
+    background: rgba(255, 255, 255, 0.75); }
+
   /* Main */
   .main .container {
-    padding: 3em 1em 1em 1em ; }
-    .main .container .image.primary:first-child {
-      margin: -2em 0 2.5em 0; }
+    padding: 3em 1em 1em 1em ;
+    background: rgba(255, 255, 255, 0.75); }
 
   /* Footer */
   #footer .container {

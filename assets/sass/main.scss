@@ -47,11 +47,11 @@
 
     html {
         background-color:      _palette(accent2, bg);
-        background-attachment: fixed,                     fixed;
-        background-image:      url('images/overlay.png'), url('../../images/competition2_edited.jpg');
-        background-position:   top left,                  center center;
-        background-repeat:     repeat,                    none;
-        background-size:       auto,                      cover;
+        background-attachment: fixed;                     //fixed;
+        background-image:      url('images/overlay.png'); //url('../../images/competition2_edited.jpg');
+        background-position:   top left;                  //center center;
+        background-repeat:     repeat;                    //none;
+        background-size:       auto;                      //cover;
     }
 
     html {
@@ -611,34 +611,6 @@
 
 /* Image */
 
-    .image {
-        border: 0;
-        display: inline-block;
-        position: relative;
-
-        &:before {
-            background: url('images/overlay.png');
-            content: '';
-            display: block;
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-
-        img {
-            display: block;
-            width: 100%;
-        }        
-
-        &.fit {
-            display: block;
-            margin: 0 0 _size(element-margin) 0;
-            width: 100%;
-        }
-    }
-
     img {
         &.inline {
             display: inline-block;
@@ -666,6 +638,10 @@
         &.the-game-icon {
             margin: 1em;
             width: 30%;
+        }
+
+        &.bg {
+            display: none;
         }
     }
 
@@ -1027,6 +1003,7 @@
 
     .main-bg {
         @include vendor('transition', 'opacity #{_duration(bg-fadein)} ease-out');
+        @include vendor('filter', 'blur(1.5px)');
         background-attachment:  fixed,      fixed;
         background-position:    top left,   center center;
         background-repeat:      repeat,     none;
@@ -1040,7 +1017,7 @@
         z-index: -1;
 
         &.active {
-            opacity: 1;
+            opacity: 0.7;
         }
     }
 
@@ -1241,20 +1218,9 @@
         $size-padding-tb: 3em;
         $size-padding-lr: 3em;
 
-        /* Main BG */
-
-            .main-bg {
-                display: none;
-            }
-
         /* Main */
 
             .main {
-                .image.primary {
-                    display: block;
-                    margin: 0 0 (_size(element-margin) * 2) 0;
-                }
-
                 .container {
                     @include padding($size-padding-tb, $size-padding-lr, (0, 0, 7em, 0));
 
@@ -1315,10 +1281,6 @@
             .main {
                 .container {
                     @include padding($size-padding-tb, $size-padding-lr);
-
-                    .image.primary:first-child {
-                        margin: (($size-padding-tb - $size-padding-lr) * -1) 0 (_size(element-margin) * 1.25) 0;
-                    }
                 }
 
                 .goto-next {
@@ -1450,15 +1412,18 @@
                 }
             }
 
+        /* Container */
+            .container {
+                background: transparentize(_palette(bg), 0.25);
+            }
+
         /* Main */
 
             .main {
                 .container {
                     @include padding($size-padding-tb, $size-padding-lr);
 
-                    .image.primary:first-child {
-                        margin: (($size-padding-tb - $size-padding-lr) * -1) 0 (_size(element-margin) * 1.25) 0;
-                    }
+                    background: transparentize(_palette(bg), 0.25);
                 }
             }
 

@@ -147,33 +147,33 @@
 
                 });
 
-        // Main sections.
-            $('.main').each(function() {
+        // All sections.
+            $('section').each(function() {
 
                 var $this = $(this),
-                    $primaryImg = $this.find('.image.primary > img'),
-                    $bg,
+                    $bg = $this.find('.bg'),
+                    $mainBG,
                     options;
 
-                // No primary image? Bail.
-                    if ($primaryImg.length == 0)
+                // No background? Bail.
+                    if ($bg.length == 0)
                         return;
 
                 // Hack: IE8 fallback.
                     if (skel.vars.IEVersion < 9) {
 
                         $this
-                            .css('background-image', 'url("' + $primaryImg.attr('src') + '")')
+                            .css('background-image', 'url("' + $bg.attr('src') + '")')
                             .css('-ms-behavior', 'url("css/ie/backgroundsize.min.htc")');
 
                         return;
 
                     }
 
-                // Create bg and append it to body.
-                    $bg = $('<div class="main-bg" id="' + $this.attr('id') + '-bg"></div>')
+                // Create main-bg and append it to body.
+                    $mainBG = $('<div class="main-bg" id="' + $this.attr('id') + '-bg"></div>')
                         .css('background-image', (
-                            'url("assets/css/images/overlay.png"), url("' + $primaryImg.attr('src') + '")'
+                            'url("assets/css/images/overlay.png"), url("' + $bg.attr('src') + '")'
                         ))
                         .appendTo($body);
 
@@ -187,20 +187,20 @@
 
                     if (skel.canUse('transition')) {
 
-                        options.init = function() { $bg.removeClass('active'); };
-                        options.enter = function() { $bg.addClass('active'); };
-                        options.leave = function() { $bg.removeClass('active'); };
+                        options.init = function() { $mainBG.removeClass('active'); };
+                        options.enter = function() { $mainBG.addClass('active'); };
+                        options.leave = function() { $mainBG.removeClass('active'); };
 
                     }
                     else {
 
-                        $bg
+                        $mainBG
                             .css('opacity', 1)
                             .hide();
 
-                        options.init = function() { $bg.fadeOut(0); };
-                        options.enter = function() { $bg.fadeIn(400); };
-                        options.leave = function() { $bg.fadeOut(400); };
+                        options.init = function() { $mainBG.fadeOut(0); };
+                        options.enter = function() { $mainBG.fadeIn(400); };
+                        options.leave = function() { $mainBG.fadeOut(400); };
 
                     }
 
