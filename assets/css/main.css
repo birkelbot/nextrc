@@ -111,7 +111,7 @@ body {
 
   .container {
     width: 80%; } }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
   .container.\31 25\25 {
     width: 100%;
     max-width: 125%;
@@ -833,7 +833,7 @@ body {
 
   .\-1u\28small\29 {
     margin-left: 8.33333%; } }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
   .row > * {
     padding: 0 0 0 1em; }
 
@@ -1653,18 +1653,37 @@ img.inline {
   max-width: 100%; }
 img.logo {
   width: 3.2em; }
-img.next-overview-icon {
-  margin: 1em;
-  width: 25%; }
-  img.next-overview-icon.left {
-    margin-right: 3em; }
-  img.next-overview-icon.right {
-    margin-left: 3em; }
 img.the-game-icon {
   margin: 1em;
   width: 30%; }
 img.bg {
   display: none; }
+
+.img-on-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0;
+  text-align: left; }
+  .img-on-left img {
+    margin: 1em 3em 1em 1em;
+    width: 25%; }
+  .img-on-left div {
+    flex-grow: 1; }
+
+.img-on-right {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0;
+  text-align: left; }
+  .img-on-right img {
+    margin: 1em 1em 1em 3em;
+    width: 25%; }
+  .img-on-right div {
+    flex-grow: 1; }
 
 /* List */
 ol {
@@ -1725,6 +1744,25 @@ ul {
       clear: both;
       content: '';
       display: block; }
+  ul.icons-column {
+    list-style: none;
+    padding: 0;
+    position: relative; }
+    ul.icons-column li {
+      display: block;
+      padding: 0;
+      margin: 2em 0;
+      width: 100%; }
+      ul.icons-column li h3 {
+        margin: 0; }
+      ul.icons-column li:not(:first-child):before {
+        background: #dddddd;
+        content: '';
+        display: block;
+        height: 2px;
+        margin: auto;
+        margin-top: -1em;
+        width: 75%; }
   ul.actions {
     cursor: default;
     list-style: none;
@@ -1975,7 +2013,7 @@ button,
     display: none; }
   .main .container {
     padding: 5em 2.5em 8em 2.5em ;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: inset 0 1px 0 0 #dddddd; }
     .main .container:before {
       min-height: calc( 100vh - 13em );
@@ -2045,7 +2083,7 @@ button,
       font-weight: 700;
       margin: 1.5em 0 0 0; }
   #header .container {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     bottom: 0;
     left: 50%;
     margin-left: -25em;
@@ -2064,7 +2102,7 @@ button,
   text-align: center; }
   #footer .container {
     padding: 5em 2.5em 3em 2.5em ;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: inset 0 1px 0 0 #dddddd; }
   #footer footer {
     bottom: 2em;
@@ -2154,10 +2192,23 @@ button,
   #footer .container {
     padding: 3em 1.5em 1em 1.5em ; } }
 /* XSmall */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 520px) {
   /* Basic */
   html, body {
     min-width: 320px; }
+
+  /* Image */
+  .img-on-left {
+    flex-direction: column;
+    margin: 0.5em 0; }
+    .img-on-left img {
+      margin: 0.5em; }
+
+  .img-on-right {
+    flex-direction: column;
+    margin: 0.5em 0; }
+    .img-on-right img {
+      margin: 0.5em; }
 
   /* List */
   ul.actions {
@@ -2190,6 +2241,15 @@ button,
       box-shadow: none; }
     ul.icons-grid li:nth-child(2n + 3):before {
       display: none; }
+  ul.icons-column li {
+    display: block;
+    margin: 1em 0; }
+    ul.icons-column li h3 {
+      margin: 0; }
+    ul.icons-column li:not(:first-child):before {
+      height: 1px;
+      margin-top: -0.5em;
+      width: 50%; }
 
   /* Button */
   input[type="submit"],
@@ -2212,6 +2272,7 @@ button,
   /* Main */
   .main .container {
     padding: 3em 1em 1em 1em ;
+    margin-bottom: 12em;
     background: rgba(255, 255, 255, 0.75); }
 
   /* Footer */

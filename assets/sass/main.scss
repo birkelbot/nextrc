@@ -10,7 +10,7 @@
         large: '(max-width: 1680px)',
         medium: '(max-width: 980px)',
         small: '(max-width: 736px)',
-        xsmall: '(max-width: 480px)'
+        xsmall: '(max-width: 520px)'
     ));
 
     @include skel-layout((
@@ -622,19 +622,6 @@
             width: 3.2em;
         }
 
-        &.next-overview-icon {
-            margin: 1em;
-            width: 25%;
-
-            &.left {
-                margin-right: 3em;
-            }
-
-            &.right {
-                margin-left: 3em;
-            }
-        }
-
         &.the-game-icon {
             margin: 1em;
             width: 30%;
@@ -642,6 +629,42 @@
 
         &.bg {
             display: none;
+        }
+    }
+
+    .img-on-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 2em 0;
+        text-align: left;
+
+        img {
+            margin: 1em 3em 1em 1em;
+            width: 25%;
+        }
+
+        div {
+            flex-grow: 1;
+        }
+    }
+
+    .img-on-right {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 2em 0;
+        text-align: left;
+
+        img {
+            margin: 1em 1em 1em 3em;
+            width: 25%;
+        }
+
+        div {
+            flex-grow: 1;
         }
     }
 
@@ -740,6 +763,37 @@
                 clear: both;
                 content: '';
                 display: block;
+            }
+        }
+
+        &.icons-column {
+            list-style: none;
+            padding: 0;
+            position: relative;
+
+            li {
+                display: block;
+                padding: 0;
+                margin: (_size(element-margin)) 0;
+                width: 100%;
+
+                h3 {
+                    margin: 0;
+                }
+
+                &:not(:first-child) {
+                    // Use the before pseudo-element to draw the horizontal separator
+                    &:before {
+                        background: _palette(border);
+                        content: '';
+                        display: block;
+                        height: 2px;
+                        margin: auto;
+                        margin-top: (_size(element-margin) * -0.5);
+                        //position: absolute;
+                        width: 75%;
+                    }
+                }
             }
         }
 
@@ -1032,7 +1086,7 @@
 
         .container {
             @include padding($size-padding-tb, $size-padding-lr, (0, 0, 5em, 0));
-            background: transparentize(_palette(bg), 0.05);
+            background: transparentize(_palette(bg), 0.10);
             box-shadow: inset 0 1px 0 0 _palette(border);
 
             &:before {
@@ -1127,7 +1181,7 @@
         }
 
         .container {
-            background: transparentize(_palette(bg), 0.05);
+            background: transparentize(_palette(bg), 0.10);
             bottom: 0;
             left: 50%;
             margin-left: -25em;
@@ -1154,7 +1208,7 @@
 
         .container {
             @include padding($size-padding-tb, $size-padding-lr);
-            background: transparentize(_palette(bg), 0.05);
+            background: transparentize(_palette(bg), 0.10);
             box-shadow: inset 0 1px 0 0 _palette(border);
         }
 
@@ -1276,6 +1330,23 @@
                 font-size: 1.35em;
             }
 
+        /* Image */
+        .img-on-left {
+            margin: 1em 0;
+
+            img {
+                margin: 1em;
+            }
+        }
+
+        .img-on-right {
+            margin: 1em 0;
+
+            img {
+                margin: 1em;
+            }
+        }
+
         /* Main */
 
             .main {
@@ -1337,6 +1408,25 @@
                 min-width: 320px;
             }
 
+        /* Image */
+        .img-on-left {
+            flex-direction: column;
+            margin: 0.5em 0;
+
+            img {
+                margin: 0.5em;
+            }
+        }
+
+        .img-on-right {
+            flex-direction: column;
+            margin: 0.5em 0;
+
+            img {
+                margin: 0.5em;
+            }
+        }
+
         /* List */
 
             ul {
@@ -1370,6 +1460,7 @@
                     }
                 }
 
+                // When viewing on small screens, arrange the grid into a column
                 &.icons-grid {
                     li {
                         box-shadow: inset 0 1px 0 0 _palette(border) !important;
@@ -1391,6 +1482,26 @@
                         &:nth-child(2n + 3) {
                             &:before {
                                 display: none;
+                            }
+                        }
+                    }
+                }
+
+                &.icons-column {
+                    li {
+                        display: block;
+                        margin: (_size(element-margin) * 0.5) 0;
+
+                        h3 {
+                            margin: 0;
+                        }
+
+                        &:not(:first-child) {
+                            // Use the before pseudo-element to draw the horizontal separator
+                            &:before {
+                                height: 1px;
+                                margin-top: (_size(element-margin) * -0.25);
+                                width: 50%;
                             }
                         }
                     }
@@ -1422,6 +1533,7 @@
             .main {
                 .container {
                     @include padding($size-padding-tb, $size-padding-lr);
+                    margin-bottom: 12em;
 
                     background: transparentize(_palette(bg), 0.25);
                 }
