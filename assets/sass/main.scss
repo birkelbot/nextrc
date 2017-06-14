@@ -624,7 +624,8 @@
 
         &.the-game-icon {
             margin: 1em;
-            width: 30%;
+            max-width: 40%;
+            max-height: 40%;
         }
 
         &.bg {
@@ -733,16 +734,18 @@
             li {
                 display: block;
                 float: left;
-                padding: (_size(element-margin) * 1.5) 0;
-                width: 50%;
+                padding: _size(element-margin);
+                width: -webkit-calc(50% - 1px);
+                width:    -moz-calc(50% - 1px);
+                width:         calc(50% - 1px);
 
                 h3 {
                     margin: 0;
                 }
 
                 &:nth-child(2n + 1) {
-                    // Use box-shadow to draw the vertical separator
-                    box-shadow: inset -1px 0 0 0 _palette(border), 1px 0 0 0 _palette(border);
+                    // Draw the vertical separator
+                    border-right: 2px solid _palette(border);
                 }
 
                 &:nth-child(2n + 3) {
@@ -754,7 +757,12 @@
                         height: 2px;
                         margin-top: (_size(element-margin) * -1.5);
                         position: absolute;
-                        width: 100%;
+                        // NOTE: Sass would not compile using the value from the $size var,
+                        //       so the "2em" value must be manually pasted here and updated
+                        //       to match the value of "element-margin" in $size.
+                        width: -webkit-calc(100% - 2em*2);
+                        width:    -moz-calc(100% - 2em*2);
+                        width:         calc(100% - 2em*2);
                     }
                 }
             }
@@ -1253,6 +1261,19 @@
         }
     }
 
+/* Custom */
+
+    .the-game-text {
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+            text-align: left;
+        }
+    }
+
 /* Large */
 
     @include breakpoint(large) {
@@ -1408,7 +1429,19 @@
                 min-width: 320px;
             }
 
+        /* Section/Article */
+            header {
+                 &.major {
+                    h1, h2, h3, h4, h5, h6 {
+                        &:after {
+                            background: _palette(border-dark);
+                        }
+                    }
+                }
+            }
+
         /* Image */
+
         .img-on-left {
             flex-direction: column;
             margin: 0.5em 0;
@@ -1463,20 +1496,16 @@
                 // When viewing on small screens, arrange the grid into a column
                 &.icons-grid {
                     li {
-                        box-shadow: inset 0 1px 0 0 _palette(border) !important;
+                        border-top: 1px solid _palette(border-dark);
+                        border-right: none !important;
                         float: none;
                         margin: _size(element-margin) 0 0 0;
                         padding: _size(element-margin) 0 0 0;
                         width: 100%;
 
                         &:first-child {
-                            box-shadow: none !important;
-                            margin-top: 0;
+                            border-top: none;
                             padding: (_size(element-margin) * 0.5) 0 0 0;
-                        }
-
-                        &:nth-child(2n + 1) {
-                            box-shadow: none;
                         }
 
                         &:nth-child(2n + 3) {
@@ -1499,6 +1528,7 @@
                         &:not(:first-child) {
                             // Use the before pseudo-element to draw the horizontal separator
                             &:before {
+                                background: _palette(border-dark);
                                 height: 1px;
                                 margin-top: (_size(element-margin) * -0.25);
                                 width: 50%;
@@ -1557,6 +1587,14 @@
                             padding: 0;
                         }
                     }
+                }
+            }
+
+        /* Custom */
+
+            .the-game-text {               
+                p {
+                    text-align: center;
                 }
             }
 

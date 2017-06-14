@@ -7,6 +7,38 @@
         xsmall: '(max-width: 480px)'
     });
 
+    // Helper function to set the height of the elements in "The Game" section.
+    function setTheGameHeights() {
+        // Round up the heights of all the icons to the nearest whole pixel.
+            $(".the-game-icon").each(function() {
+                $(this).height("auto");
+                $(this).height(Math.round($(this).height()));
+            });
+
+        // Add margin to the images to make them all have equal height.
+            var maxIconHeight = -1
+            $(".the-game-icon").each(function() {
+                maxIconHeight = maxIconHeight > $(this).height() ? maxIconHeight : $(this).height();
+            });
+            $(".the-game-icon").each(function() {
+                var newMargin = (maxIconHeight-$(this).height())/2.0;
+                $(this).css("margin-top", newMargin + "px");
+                $(this).css("margin-bottom", newMargin + "px");
+            });
+
+        // Adjust the height of the text blocks so they all have equal height.
+            $(".the-game-text").each(function() {
+                $(this).height("auto");
+            });
+            var maxTextHeight = -1
+            $(".the-game-text").each(function() {
+                maxTextHeight = maxTextHeight > $(this).height() ? maxTextHeight : $(this).height();
+            });
+            $(".the-game-text").each(function() {
+                $(this).height(maxTextHeight);
+            });
+    }
+
     $(function() {
 
         var $window = $(window),
@@ -208,6 +240,13 @@
 
             });
 
+        // Set the height of the elements in "The Game" section.
+            setTheGameHeights();
+
+    });
+
+    $(window).on('resize orientationChange', function(event) {
+        setTheGameHeights();
     });
 
 })(jQuery);
