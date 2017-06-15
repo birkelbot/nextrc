@@ -1156,6 +1156,9 @@ pre {
 .align-right {
   text-align: right; }
 
+.space-below {
+  padding-bottom: 4em; }
+
 /* Loader */
 @-moz-keyframes spinner-show {
   0% {
@@ -1672,6 +1675,8 @@ img.bg {
     width: 25%; }
   .img-on-left div {
     flex-grow: 1; }
+  .img-on-left p {
+    margin: 0; }
 
 .img-on-right {
   display: flex;
@@ -1685,6 +1690,8 @@ img.bg {
     width: 25%; }
   .img-on-right div {
     flex-grow: 1; }
+  .img-on-right p {
+    margin: 0; }
 
 /* List */
 ol {
@@ -1720,22 +1727,22 @@ ul {
         padding-right: 0; }
       ul.icons li .icon:before {
         font-size: 1.5em; }
-  ul.icons-grid {
+  ul.grid {
     list-style: none;
     padding: 0;
     position: relative; }
-    ul.icons-grid li {
+    ul.grid li {
       display: block;
       float: left;
       padding: 2em;
       width: -webkit-calc(50% - 1px);
       width: -moz-calc(50% - 1px);
       width: calc(50% - 1px); }
-      ul.icons-grid li h3 {
+      ul.grid li h3 {
         margin: 0; }
-      ul.icons-grid li:nth-child(2n + 1) {
+      ul.grid li:nth-child(2n + 1) {
         border-right: 2px solid #dddddd; }
-      ul.icons-grid li:nth-child(2n + 3):before {
+      ul.grid li:nth-child(2n + 3):before {
         background: #dddddd;
         content: '';
         display: block;
@@ -1745,22 +1752,22 @@ ul {
         width: -webkit-calc(100% - 2em*2);
         width: -moz-calc(100% - 2em*2);
         width: calc(100% - 2em*2); }
-    ul.icons-grid:after {
+    ul.grid:after {
       clear: both;
       content: '';
       display: block; }
-  ul.icons-column {
+  ul.column {
     list-style: none;
     padding: 0;
     position: relative; }
-    ul.icons-column li {
+    ul.column li {
       display: block;
       padding: 0;
       margin: 2em 0;
       width: 100%; }
-      ul.icons-column li h3 {
+      ul.column li h3 {
         margin: 0; }
-      ul.icons-column li:not(:first-child):before {
+      ul.column li:not(:first-child):before {
         background: #dddddd;
         content: '';
         display: block;
@@ -2138,10 +2145,15 @@ button,
 
 /* Custom */
 .the-game-text h3 {
-  text-align: center; }
+  text-align: center;
+  padding-top: 1em; }
 .the-game-text p {
-  margin: 0;
-  text-align: left; }
+  margin: 0; }
+
+.why-next-text {
+  margin: 2em 0; }
+  .why-next-text p {
+    margin: 0; }
 
 /* Large */
 @media screen and (max-width: 1680px) {
@@ -2181,15 +2193,15 @@ button,
     font-size: 1.35em; }
 
   /* Image */
-  .img-on-left {
-    margin: 1em 0; }
-    .img-on-left img {
-      margin: 1em; }
+  .img-on-left img {
+    margin: 1em; }
+  .img-on-left h3 {
+    padding-top: 1em; }
 
-  .img-on-right {
-    margin: 1em 0; }
-    .img-on-right img {
-      margin: 1em; }
+  .img-on-right img {
+    margin: 1em; }
+  .img-on-right h3 {
+    padding-top: 1em; }
 
   /* Main */
   .main .container {
@@ -2227,15 +2239,21 @@ button,
   /* Image */
   .img-on-left {
     flex-direction: column;
-    margin: 0.5em 0; }
+    text-align: center; }
     .img-on-left img {
-      margin: 0.5em; }
+      margin: 0.5em;
+      width: auto;
+      max-width: 40%;
+      max-height: 40%; }
 
   .img-on-right {
     flex-direction: column;
-    margin: 0.5em 0; }
+    text-align: center; }
     .img-on-right img {
-      margin: 0.5em; }
+      margin: 0.5em;
+      width: auto;
+      max-width: 40%;
+      max-height: 40%; }
 
   /* List */
   ul.actions {
@@ -2254,28 +2272,27 @@ button,
       padding: 0.5em 0 0 0; }
       ul.actions.small li:first-child {
         padding-top: 0; }
-  ul.icons-grid li {
+  ul.grid li {
     border-top: 1px solid #bbbbbb;
     border-right: none !important;
     float: none;
     margin: 2em 0 0 0;
     padding: 2em 0 0 0;
     width: 100%; }
-    ul.icons-grid li:first-child {
+    ul.grid li:first-child {
       border-top: none;
       padding: 1em 0 0 0; }
-    ul.icons-grid li:nth-child(2n + 3):before {
+    ul.grid li:nth-child(2n + 3):before {
       display: none; }
-  ul.icons-column li {
-    display: block;
-    margin: 1em 0; }
-    ul.icons-column li h3 {
+  ul.column li {
+    display: block; }
+    ul.column li h3 {
       margin: 0; }
-    ul.icons-column li:not(:first-child):before {
+    ul.column li:not(:first-child):before {
       background: #bbbbbb;
       height: 1px;
       margin-top: -0.5em;
-      width: 50%; }
+      width: 100%; }
 
   /* Button */
   input[type="submit"],
