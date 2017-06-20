@@ -2000,10 +2000,10 @@ button,
   -webkit-transition: opacity 0.5s ease-out;
   -ms-transition: opacity 0.5s ease-out;
   transition: opacity 0.5s ease-out;
-  -moz-filter: blur(1.5px);
-  -webkit-filter: blur(1.5px);
-  -ms-filter: blur(1.5px);
-  filter: blur(1.5px);
+  -moz-filter: blur(1px);
+  -webkit-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
   background-attachment: fixed,      fixed;
   background-position: top left,   center center;
   background-repeat: repeat,     none;
@@ -2315,7 +2315,7 @@ button,
   /* Main */
   .main .container {
     padding: 3em 1em 1em 1em ;
-    margin-bottom: 12em;
+    margin-bottom: 200px;
     background: rgba(255, 255, 255, 0.75); }
 
   /* Footer */

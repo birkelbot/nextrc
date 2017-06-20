@@ -1077,7 +1077,7 @@
 
     .main-bg {
         @include vendor('transition', 'opacity #{_duration(bg-fadein)} ease-out');
-        @include vendor('filter', 'blur(1.5px)');
+        @include vendor('filter', 'blur(1px)');
         background-attachment:  fixed,      fixed;
         background-position:    top left,   center center;
         background-repeat:      repeat,     none;
@@ -1593,7 +1593,7 @@
             .main {
                 .container {
                     @include padding($size-padding-tb, $size-padding-lr);
-                    margin-bottom: 12em;
+                    margin-bottom: 200px;
 
                     background: transparentize(_palette(bg), 0.25);
                 }
