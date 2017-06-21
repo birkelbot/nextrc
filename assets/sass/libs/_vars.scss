@@ -19,7 +19,6 @@
 // Font.
     $font: (
         family:             ('Raleway', 'Helvetica', sans-serif),
-        family-fixed:       ('Courier New', monospace),
         weight:             400,
         weight-bold:        700,
         weight-heavy:       800
@@ -31,7 +30,6 @@
         fg:                 #6f7577,
         fg-bold:            #61686b,
         fg-light:           #a8b0b3,
-        fg-lighter:         #e8f0f3,
         border:             #dddddd,
         border-bg:          rgba(144,144,144,0.075),
         border-dark:        #bbbbbb,
@@ -41,35 +39,17 @@
         alt: (
             fg-bold:        #ffffff,
             fg:             rgba(255,255,255,0.5),
-            fg-light:       rgba(255,255,255,0.35),
-            fg-lighter:     rgba(255,255,255,0.2),
-            border:         #ffffff,
-            border-bg:      rgba(255,255,255,0.075),
-            border2:        #ffffff,
-            border2-bg:     rgba(255,255,255,0.15)
+            fg-lighter:     rgba(255,255,255,0.2)
         ),
 
         accent1: (
             bg:             #8cd1a8,
             fg-bold:        #ffffff,
-            fg:             mix(#8cd1a8, #ffffff, 25%),
-            fg-light:       mix(#8cd1a8, #ffffff, 40%),
-            fg-lighter:     mix(#8cd1a8, #ffffff, 90%),
-            border:         rgba(255,255,255,0.25),
-            border-bg:      rgba(255,255,255,0.075),
-            border2:        rgba(255,255,255,0.5),
-            border2-bg:     rgba(255,255,255,0.2)
+            fg-light:       mix(#8cd1a8, #ffffff, 40%)
         ),
 
         accent2: (
             bg:             #313a3d,
-            fg-bold:        #ffffff,
-            fg:             mix(#313a3d, #ffffff, 25%),
-            fg-light:       mix(#313a3d, #ffffff, 40%),
-            fg-lighter:     mix(#313a3d, #ffffff, 90%),
-            border:         rgba(255,255,255,0.25),
-            border-bg:      rgba(255,255,255,0.075),
-            border2:        rgba(255,255,255,0.5),
-            border2-bg:     rgba(255,255,255,0.2)
+            fg-lighter:     mix(#313a3d, #ffffff, 90%)
         )
     );

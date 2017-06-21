@@ -30,37 +30,15 @@
 /* Form */
 
     input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    select,
-    textarea {
+    input[type="email"] {
         border: solid 2px _palette(border);
         position: relative;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    input[type="email"] {
         line-height: _size(element-height);
-    }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-        font-size: 3em;
-
-        & + label {
-            &:before {
-                display: none;
-            }
-        }
     }
 
 /* Button */
 
     input[type="submit"],
-    input[type="reset"],
-    input[type="button"],
-    button,
     .button {
         border: solid 2px _palette(border);
     }
