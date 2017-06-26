@@ -224,7 +224,7 @@
                 skel.on('-small !small', function() {
                     $header.unscrollex();
                     var options = getBGScrollexOptions($header);
-                    options.terminate = function() {
+                    options.terminate = function() {    
                         $headerTitle.css('opacity', '');
                     };
                     options.scroll = function(progress) {
@@ -244,6 +244,20 @@
                     $header.unscrollex();
                     $header.scrollex(getBGScrollexOptions($header));
                 });
+
+        // NEXT Title.
+            skel.on('+large -medium', function () {
+                $('#next-title').attr('src', 'images/next-robotics-competition-wide-bold.png');
+                $('#next-title').height('1.3em');
+            });
+            skel.on('-xsmall +small +medium -large', function () {
+                $('#next-title').attr('src', 'images/next-robotics-competition-wide.png');
+                $('#next-title').height('1.3em');
+            });
+            skel.on('+xsmall', function () {
+                $('#next-title').attr('src', 'images/next-robotics-competition-medium.png');
+                $('#next-title').height('3.2em');
+            });
 
         // Set the height of the elements in "The Game" section.
             setTheGameHeights();
