@@ -1480,6 +1480,9 @@ img.the-game-icon {
 img.bg {
   display: none; }
 
+#be-next {
+  height: 1.3em; }
+
 #next-title {
   height: 1.3em; }
 
@@ -1746,29 +1749,22 @@ input[type="submit"],
 #header {
   height: 100vh;
   position: relative;
-  text-align: center; }
-  #header:after {
-    content: '';
-    display: inline-block;
-    height: 100vh;
-    vertical-align: middle; }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
   #header header {
     color: rgba(255, 255, 255, 0.5);
     display: inline-block;
-    padding-bottom: 8em;
-    vertical-align: middle; }
-    #header header h1, #header header h2, #header header h3 {
-      color: #ffffff; }
+    padding-bottom: 8em; }
+    #header header h1 {
+      color: #61686b;
+      font-size: 3em;
+      margin: 0; }
     #header header a {
       color: inherit; }
       #header header a:hover {
         color: #ffffff !important; }
-    #header header h1 {
-      font-size: 3em;
-      line-height: 1.25em;
-      margin: 0; }
-      #header header h1:after {
-        margin-top: 0.5em; }
     #header header p {
       color: #ffffff;
       font-weight: 700;
@@ -1823,6 +1819,15 @@ input[type="submit"],
           padding-left: 0; }
 
 /* Custom */
+#title-box {
+  height: 6em;
+  width: 40em;
+  display: inline-flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9); }
+
 .the-game-text h3 {
   text-align: center;
   padding-top: 1em; }
@@ -1849,8 +1854,7 @@ input[type="submit"],
 
   /* Header */
   #header header {
-    padding-bottom: 9em;
-    width: 80%; }
+    padding-bottom: 9em; }
   #header .container {
     margin-left: -40%;
     padding: 3em; }

@@ -68,34 +68,42 @@
             return options;
     }
 
+    // Helper function to set the width of the box for the main title.
+    function setTitleBoxWidth() {
+        var minWidth = 600, // in px
+            $containerWidth = $('.container').outerWidth();
+
+        $('#title-box').width(Math.min(minWidth, $containerWidth));
+    }
+
     // Helper function to set the height of the elements in "The Game" section.
     function setTheGameHeights() {
         // Round up the heights of all the icons to the nearest whole pixel.
-            $(".the-game-icon").each(function() {
-                $(this).height("auto");
+            $('.the-game-icon').each(function() {
+                $(this).height('auto');
                 $(this).height(Math.round($(this).height()));
             });
 
         // Add margin to the images to make them all have equal height.
             var maxIconHeight = -1
-            $(".the-game-icon").each(function() {
+            $('.the-game-icon').each(function() {
                 maxIconHeight = maxIconHeight > $(this).height() ? maxIconHeight : $(this).height();
             });
-            $(".the-game-icon").each(function() {
+            $('.the-game-icon').each(function() {
                 var newMargin = (maxIconHeight-$(this).height())/2.0;
-                $(this).css("margin-top", newMargin + "px");
-                $(this).css("margin-bottom", newMargin + "px");
+                $(this).css('margin-top', newMargin + 'px');
+                $(this).css('margin-bottom', newMargin + 'px');
             });
 
         // Adjust the height of the text blocks so they all have equal height.
-            $(".the-game-text").each(function() {
-                $(this).height("auto");
+            $('.the-game-text').each(function() {
+                $(this).height('auto');
             });
             var maxTextHeight = -1
-            $(".the-game-text").each(function() {
+            $('.the-game-text').each(function() {
                 maxTextHeight = maxTextHeight > $(this).height() ? maxTextHeight : $(this).height();
             });
-            $(".the-game-text").each(function() {
+            $('.the-game-text').each(function() {
                 $(this).height(maxTextHeight);
             });
     }
@@ -170,7 +178,7 @@
             $('section').each(function() {
                 var $this = $(this);
                 createMainBGElement($this);
-                if ($this.id != "header") {
+                if ($this.id != 'header') {
                     skel.on('-xsmall !xsmall', function() {
                         $this.unscrollex();
                         $this.scrollex(getBGScrollexOptions($this));
@@ -185,7 +193,6 @@
                     });
                 }
             });
-
 
         // Header.
             var $header = $('#header'),
@@ -245,6 +252,49 @@
                     $header.scrollex(getBGScrollexOptions($header));
                 });
 
+            // Text Rotator.
+                $('.rotate').each(function() {
+                    var $this = $(this),
+                        text = $this.html().split(',');
+                    $this.html(text[0]);
+                    var refreshIntervalId = window.setInterval(function() {
+                        $this.animate(
+                            {textShadowBlur: 20,
+                             opacity: 0},
+                            500,
+                            function() {
+                                index = $.inArray($this.html(), text)
+                                if ((index + 2) == text.length) {
+                                    clearInterval(refreshIntervalId);
+                                    if ($this.attr('id') == 'main-title' ||
+                                        $this.parent().attr('id') == 'main-title') {
+                                        window.setTimeout(function() {
+                                            var $mainTitle = $('#main-title');
+                                            $mainTitle.animate(
+                                                {textShadowBlur: 20,
+                                                 opacity: 0},
+                                                500,
+                                                function() {
+                                                    $mainTitle.html('<img id="be-next" src="images/be-next.png"/>').animate({
+                                                        opacity: 1
+                                                    }, 500);
+                                                }
+                                            );
+                                        }, 2000);
+                                    }
+                                }
+                                $this.text(text[index + 1]).animate({
+                                    textShadowBlur: 0,
+                                    opacity: 1
+                                }, 500);
+                            }
+                        );
+                    }, 2000);
+                });
+
+            // Title Box.
+                setTitleBoxWidth();
+
         // NEXT Title.
             skel.on('+large -medium', function () {
                 $('#next-title').attr('src', 'images/next-robotics-competition-wide-bold.png');
@@ -264,6 +314,7 @@
     });
 
     $(window).on('resize orientationChange', function(event) {
+        setTitleBoxWidth();
         setTheGameHeights();
     });
 })(jQuery);

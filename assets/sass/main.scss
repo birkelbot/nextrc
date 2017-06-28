@@ -419,9 +419,13 @@
         }
     }
 
-    // #next-title {
-    //     height: 1.3em;
-    // }
+    #be-next {
+        height: 1.3em;
+    }
+
+    #next-title {
+        height: 1.3em;
+    }
 
     #whats-next {
         height: 55%;
@@ -777,22 +781,19 @@
         height: 100vh;
         position: relative;
         text-align: center;
-
-        &:after {
-            content: '';
-            display: inline-block;
-            height: 100vh;
-            vertical-align: middle;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         header {
             color: _palette(alt, fg);
             display: inline-block;
             padding-bottom: (_size(element-height) + ($size-padding-lr * 2));
-            vertical-align: middle;
 
-            h1, h2, h3 {
-                color: _palette(alt, fg-bold);
+            h1 {
+                color: _palette(fg-bold);
+                font-size: 3em;
+                margin: 0;
             }
 
             a {
@@ -800,16 +801,6 @@
 
                 &:hover {
                     color: _palette(alt, fg-bold) !important;
-                }
-            }
-
-            h1 {
-                font-size: 3em;
-                line-height: 1.25em;
-                margin: 0;
-
-                &:after {
-                    margin-top: 0.5em;
                 }
             }
 
@@ -895,6 +886,16 @@
 
 /* Custom */
 
+    #title-box {
+        height: 6em;
+        width: 40em;
+        display: inline-flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        background: transparentize(_palette(bg), 0.10);
+    }
+
     .the-game-text {
         h3 {
             text-align: center;
@@ -903,7 +904,6 @@
 
         p {
             margin: 0;
-            //text-align: left;
         }
     }
 
@@ -950,7 +950,7 @@
             #header {
                 header {
                     padding-bottom: (_size(element-height) + ($size-padding-lr * 2));
-                    width: 80%;
+                    // width: 80%;
                 }
 
                 .container {
