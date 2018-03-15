@@ -748,31 +748,6 @@
                 width: calc(100% - 10px);
             }
         }
-
-        .goto-next {
-            @include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
-            background-color: _palette(border-bg);
-            background-image: url('images/arrow.svg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            border-radius: 100%;
-            border: 0;
-            bottom: 3em;
-            display: block;
-            height: 4em;
-            left: 50%;
-            line-height: 4em;
-            margin-left: -2em;
-            overflow: hidden;
-            position: absolute;
-            text-indent: 4em;
-            white-space: nowrap;
-            width: 4em;
-
-            &:hover {
-                background-color: _palette(border2-bg);
-            }
-        }
     }
 
 /* Header */
@@ -1018,10 +993,6 @@
             .main {
                 .container {
                     @include padding($size-padding-tb, $size-padding-lr);
-                }
-
-                .goto-next {
-                    display: none;
                 }
             }
 
