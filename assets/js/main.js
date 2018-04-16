@@ -115,13 +115,12 @@
                 $(this).find('li').each(function() {
                     $(this).height('auto');
                 });
-                var maxGridItemHeightWithPadding = -1
+                var maxGridItemHeight = -1
                 $(this).find('li').each(function() {
-                    thisHeightWithPadding = $(this).height() + parseInt($(this).css('padding-top')) + parseInt($(this).css('padding-bottom'));
-                    maxGridItemHeightWithPadding = maxGridItemHeightWithPadding > thisHeightWithPadding ? maxGridItemHeightWithPadding : thisHeightWithPadding;
+                    maxGridItemHeight = maxGridItemHeight > $(this).height() ? maxGridItemHeight : $(this).height();
                 })
                 $(this).find('li').each(function() {
-                    $(this).height(maxGridItemHeightWithPadding)
+                    $(this).height(maxGridItemHeight)
                 })
         });
     }
