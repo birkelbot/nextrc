@@ -76,36 +76,54 @@
         $('#title-box').width(Math.min(minWidth, $containerWidth));
     }
 
-    // Helper function to set the height of the elements in "The Game" section.
-    function setTheGameHeights() {
-        // Round up the heights of all the icons to the nearest whole pixel.
-            $('.the-game-icon').each(function() {
-                $(this).height('auto');
-                $(this).height(Math.round($(this).height()));
-            });
+    // Helper function to set the height of the elements in a grid section.
+    function setGridHeights() {
+        $('.grid').each(function() {
+            // Round up the heights of all the icons to the nearest whole pixel.
+                $(this).find('.grid-icon').each(function() {
+                    $(this).height('auto');
+                    $(this).height(Math.round($(this).height()));
+                });
 
-        // Add margin to the images to make them all have equal height.
-            var maxIconHeight = -1
-            $('.the-game-icon').each(function() {
-                maxIconHeight = maxIconHeight > $(this).height() ? maxIconHeight : $(this).height();
-            });
-            $('.the-game-icon').each(function() {
-                var newMargin = (maxIconHeight-$(this).height())/2.0;
-                $(this).css('margin-top', newMargin + 'px');
-                $(this).css('margin-bottom', newMargin + 'px');
-            });
+            // Add margin to the images to make them all have equal height.
+                var maxIconHeight = -1
+                $(this).find('.grid-icon').each(function() {
+                    maxIconHeight = maxIconHeight > $(this).height() ? maxIconHeight : $(this).height();
+                });
+                var minimumMargin = 10  // px
+                $(this).find('.grid-icon').each(function() {
+                    var newMargin = (maxIconHeight-$(this).height())/2.0 + minimumMargin;
+                    $(this).css('margin-top', newMargin + 'px');
+                    $(this).css('margin-bottom', newMargin + 'px');
+                });
 
-        // Adjust the height of the text blocks so they all have equal height.
-            $('.the-game-text').each(function() {
-                $(this).height('auto');
-            });
-            var maxTextHeight = -1
-            $('.the-game-text').each(function() {
-                maxTextHeight = maxTextHeight > $(this).height() ? maxTextHeight : $(this).height();
-            });
-            $('.the-game-text').each(function() {
-                $(this).height(maxTextHeight);
-            });
+            // Adjust the height of the text blocks so they all have equal height.
+                $(this).find('.grid-text').each(function() {
+                    $(this).height('auto');
+                });
+                var maxTextHeight = -1
+                $(this).find('.grid-text').each(function() {
+                    maxTextHeight = maxTextHeight > $(this).height() ? maxTextHeight : $(this).height();
+                });
+                $(this).find('.grid-text').each(function() {
+                    $(this).height(maxTextHeight);
+                });
+
+            // Adjust the height of the grid items to make sure they're all the same.
+            // Sometimes, rounding in the margin calculations above cause the grid items
+            // to be +/- 1 pixel, which breaks the rendering.
+                $(this).find('li').each(function() {
+                    $(this).height('auto');
+                });
+                var maxGridItemHeightWithPadding = -1
+                $(this).find('li').each(function() {
+                    thisHeightWithPadding = $(this).height() + parseInt($(this).css('padding-top')) + parseInt($(this).css('padding-bottom'));
+                    maxGridItemHeightWithPadding = maxGridItemHeightWithPadding > thisHeightWithPadding ? maxGridItemHeightWithPadding : thisHeightWithPadding;
+                })
+                $(this).find('li').each(function() {
+                    $(this).height(maxGridItemHeightWithPadding)
+                })
+        });
     }
 
     $(function() {
@@ -310,11 +328,11 @@
             });
 
         // Set the height of the elements in "The Game" section.
-            setTheGameHeights();
+            setGridHeights();
     });
 
     $(window).on('resize orientationChange', function(event) {
         setTitleBoxWidth();
-        setTheGameHeights();
+        setGridHeights();
     });
 })(jQuery);

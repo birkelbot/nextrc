@@ -1475,8 +1475,8 @@ img.logo {
   width: 3.2em; }
 img.grid-icon {
   margin: 1em;
-  max-width: 40%;
-  max-height: 40%; }
+  max-width: 45%;
+  max-height: 100%; }
 img.bg {
   display: none; }
 
