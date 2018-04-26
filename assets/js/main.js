@@ -318,11 +318,7 @@
                 $('#next-title').attr('src', 'images/next-robotics-competition-wide-bold.png');
                 $('#next-title').height('1.3em');
             });
-            skel.on('-xsmall +small +medium -large', function () {
-                $('#next-title').attr('src', 'images/next-robotics-competition-wide.png');
-                $('#next-title').height('1.3em');
-            });
-            skel.on('+xsmall', function () {
+            skel.on('+xsmall +small +medium -large', function () {
                 $('#next-title').attr('src', 'images/next-robotics-competition-medium.png');
                 $('#next-title').height('3.2em');
             });
