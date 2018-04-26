@@ -45,38 +45,38 @@ body {
 
 .container.\31 25\25 {
   width: 100%;
-  max-width: 62.5em;
-  min-width: 50em; }
+  max-width: 75em;
+  min-width: 60em; }
 
 .container.\37 5\25 {
-  width: 37.5em; }
+  width: 45em; }
 
 .container.\35 0\25 {
-  width: 25em; }
+  width: 30em; }
 
 .container.\32 5\25 {
-  width: 12.5em; }
+  width: 15em; }
 
 .container {
-  width: 50em; }
+  width: 60em; }
 
 @media screen and (max-width: 1680px) {
   .container.\31 25\25 {
     width: 100%;
-    max-width: 62.5em;
-    min-width: 50em; }
+    max-width: 75em;
+    min-width: 60em; }
 
   .container.\37 5\25 {
-    width: 37.5em; }
+    width: 45em; }
 
   .container.\35 0\25 {
-    width: 25em; }
+    width: 30em; }
 
   .container.\32 5\25 {
-    width: 12.5em; }
+    width: 15em; }
 
   .container {
-    width: 50em; } }
+    width: 60em; } }
 @media screen and (max-width: 980px) {
   .container.\31 25\25 {
     width: 100%;
@@ -1475,8 +1475,8 @@ img.logo {
   width: 3.2em; }
 img.grid-icon {
   margin: 1em;
-  max-width: 45%;
-  max-height: 100%; }
+  max-width: 55%;
+  max-height: 55%; }
 img.bg {
   display: none; }
 
@@ -1749,7 +1749,7 @@ input[type="submit"],
     background: rgba(255, 255, 255, 0.9);
     bottom: 0;
     left: 50%;
-    margin-left: -25em;
+    margin-left: -30em;
     padding: 2.5em;
     position: absolute; }
     #header .container > :last-child {

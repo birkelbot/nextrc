@@ -18,7 +18,7 @@
         boxModel: 'border',
         grid: ( gutters: 1.5em ),
         conditionals: true,
-        containers: 50em,
+        containers: _size(container-width),
         breakpoints: (
             large: (
             ),
@@ -410,8 +410,8 @@
 
         &.grid-icon {
             margin: 1em;
-            max-width: 75%;
-            max-height: 75%;
+            max-width: 55%;
+            max-height: 55%;
         }
 
         &.bg {
@@ -790,7 +790,7 @@
             background: transparentize(_palette(bg), 0.10);
             bottom: 0;
             left: 50%;
-            margin-left: -25em;
+            margin-left: -1 * _size(container-width) / 2;
             padding: $size-padding-lr;
             position: absolute;
 
