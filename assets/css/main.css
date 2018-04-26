@@ -1706,15 +1706,9 @@ input[type="submit"],
   .main .image.primary {
     display: none; }
   .main .container {
-    padding: 5em 2.5em 8em 2.5em ;
+    padding: 5em 2.5em 6em 2.5em ;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: inset 0 1px 0 0 #dddddd; }
-    .main .container:before {
-      min-height: calc( 100vh - 13em );
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      width: 1px; }
     .main .container .content {
       display: inline-block;
       margin-right: 1px;

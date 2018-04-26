@@ -36,10 +36,6 @@
         )
     ));
 
-    @mixin minHeight($tb, $pad) {
-        min-height: calc( 100vh - #{ $tb + (($tb - _size(element-margin)) + $pad) } );
-    }
-
     $size-padding-tb: 5em;
     $size-padding-lr: 2.5em;
 
@@ -729,17 +725,9 @@
         }
 
         .container {
-            @include padding($size-padding-tb, $size-padding-lr, (0, 0, 5em, 0));
+            @include padding($size-padding-tb, $size-padding-lr, (0, 0, 3em, 0));
             background: transparentize(_palette(bg), 0.10);
             box-shadow: inset 0 1px 0 0 _palette(border);
-
-            &:before {
-                @include minHeight($size-padding-tb, 5em);
-                content: '';
-                display: inline-block;
-                vertical-align: middle;
-                width: 1px;
-            }
 
             .content {
                 display: inline-block;
