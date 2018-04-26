@@ -1,9 +1,10 @@
 (function($) {
+    // NOTE: Make sure to keep these in sync with main.scss.
     skel.breakpoints({
         large: '(max-width: 1680px)',
         medium: '(max-width: 980px)',
         small: '(max-width: 736px)',
-        xsmall: '(max-width: 480px)'
+        xsmall: '(max-width: 580px)'
     });
 
     function createMainBGElement(section) {
@@ -326,7 +327,7 @@
                 $('#next-title').height('3.2em');
             });
 
-        // Set the height of the elements in "The Game" section.
+        // Set the height of the elements in grid sections.
             setGridHeights();
     });
 

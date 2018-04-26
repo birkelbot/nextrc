@@ -111,7 +111,7 @@ body {
 
   .container {
     width: 80%; } }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 580px) {
   .container.\31 25\25 {
     width: 100%;
     max-width: 125%;
@@ -833,7 +833,7 @@ body {
 
   .\-1u\28small\29 {
     margin-left: 8.3333333333%; } }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 580px) {
   .row > * {
     padding: 0 0 0 1em; }
 
@@ -1878,7 +1878,7 @@ input[type="submit"],
   #footer .container {
     padding: 3em 1.5em 1em 1.5em ; } }
 /* XSmall */
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 580px) {
   /* Basic */
   html, body {
     min-width: 320px; }
