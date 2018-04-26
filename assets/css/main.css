@@ -1843,7 +1843,10 @@ input[type="submit"],
 @media screen and (max-width: 736px) {
   /* Basic */
   h2 {
-    font-size: 1.35em; }
+    font-size: 1.75em; }
+
+  h3 {
+    font-size: 1.25em; }
 
   /* Image */
   .img-on-left img {

@@ -6,6 +6,7 @@
 
     @import "libs/skel";
 
+    // NOTE: Make sure to keep these in sync with main.js.
     @include skel-breakpoints((
         large: '(max-width: 1680px)',
         medium: '(max-width: 980px)',
@@ -951,7 +952,11 @@
         /* Basic */
 
             h2 {
-                font-size: 1.35em;
+                font-size: 1.75em;
+            }
+
+            h3 {
+                font-size: 1.25em;
             }
 
         /* Image */
