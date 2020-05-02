@@ -7,11 +7,18 @@
 $font-primary: 'Poppins',Arial, sans-serif;
 $font-secondary: 'Lato',Arial, sans-serif;
 
-$white: #fff;
+$white: #FFFFFF;
 $black: #000000;
+$darkgrey: #252525;
+$grey: #BABABA;
+$lightgrey: #F8F9FA;
+$lightgreen: #D1FFD9;
+$lightteal: #85CCCB;
+$teal: #21B2BF;
+$navy: #23202B;
 
-$primary: #21B2BF;
-$secondary: #BABABA;
+$primary: $teal;
+$secondary: $grey;
 
 
 /******************************/
@@ -37,6 +44,10 @@ $secondary: #BABABA;
 /******************************/
 /***         BASIC          ***/
 /******************************/
+
+html {
+  scroll-behavior: smooth
+}
 
 body {
   font-family: $font-primary;
@@ -64,19 +75,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .bg-primary{
-  background: $primary!important;
+  background: $primary !important;
 }
 
 .bg-secondary{
-  background: $secondary!important;
+  background: $secondary !important;
 }
 
 .bg-light {
-  background: #f8f9fa!important;
+  background: $lightgrey !important;
 }
 
 .bg-dark {
-  background: #3c312e;
+  background: $navy;
 }
 
 .no-pt{
@@ -125,7 +136,7 @@ h1, h2, h3, h4, h5 {
 .section {
   padding: 7em 0;
   position: relative;
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     padding: 6em 0;
   }
 }
@@ -135,51 +146,46 @@ h1, h2, h3, h4, h5 {
 /***        NAV BAR         ***/
 /******************************/
 
-.navbar-dark {
-  background: $primary!important;
+.navbar {
   z-index: 3;
   padding: 0;
   @include media-breakpoint-down(md) {
-    background: $black!important;
-    position: relative;
-    top: 0;
     padding: 10px 15px;
+  }
+  transition: 0.2s ease-in-out;
+
+  .navbar-toggler {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 40px;
+  }
+
+  .navbar-brand {
+    img {
+      height: 40px;
+    }
   }
 
   .navbar-nav {
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       padding-bottom: 10px;
     }
     > .nav-item {
       > .nav-link {
         font-size: 14px;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 1.5rem 20px;
         font-weight: 600;
-        color: $white;
         text-transform: uppercase;
         letter-spacing: 2px;
         position: relative;
-        opacity: 1!important;
+        opacity: 1 !important;
 
-        @include media-breakpoint-down(md){
-          padding-left: 0;
-          padding-right: 0;
-          padding-top: .7rem;
-          padding-bottom: .7rem;
-          color: rgba(255,255,255,.7);
-          &:hover{
-            color: $white;
-          }
-        }
-        @include media-breakpoint-down(sm){
-          border-bottom: 1px solid rgba(255,255,255,.2);
+        @include media-breakpoint-down(md) {
+          padding: 0.7rem 0;
         }
 
         /* Animate an underline below the hovered nav-link. */
-        &:before{
+        &:before {
           position: absolute;
           bottom: 0;
           left: 0;
@@ -187,23 +193,53 @@ h1, h2, h3, h4, h5 {
           display: block;
           width: 0;
           height: 2px;
-          background: $secondary;
           @include transition(.3s);
         }
         &:hover {
-          color: $secondary;
           &:before{
             width: 100%;
           }
         }
       }
+    }
+  }
+}
+
+.navbar-dark {
+  background: $navy !important;
+
+  .navbar-toggler {
+    color: $grey;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .navbar-nav {
+    > .nav-item {
+      > .nav-link {
+        color: $grey;
+
+        @include media-breakpoint-down(md) {
+          &:hover{
+            color: $white;
+          }
+        }
+        @include media-breakpoint-down(sm) {
+          border-bottom: 1px solid rgba(255,255,255,.2);
+        }
+
+        &:before {
+          background: $white;
+        }
+        &:hover {
+          color: $white;
+        }
+      }
 
       &.active {
         > a {
-          color: $secondary;
-          @include media-breakpoint-down(md){
-            color: $white;
-          }
+          color: $white;
         }
       }
     }
@@ -303,18 +339,18 @@ h1, h2, h3, h4, h5 {
 }
 
 .form-control {
-  height: 52px!important;
-  background: $white!important;
-  color: $black!important;
+  height: 52px !important;
+  background: $white !important;
+  color: $black !important;
   font-size: 18px;
   border-radius: 5px;
-  box-shadow: none!important;
+  box-shadow: none !important;
   &:focus, &:active {
     border-color: $black;
   }
 }
 textarea.form-control {
-  height: inherit!important;
+  height: inherit !important;
 }
 
 
@@ -324,7 +360,7 @@ textarea.form-control {
 
 .footer {
   font-size: 16px;
-  background: #252525;
+  background: $darkgrey;
   padding: 5em 0 3em 0;
   .main-text{
     font-size: 34px !important;

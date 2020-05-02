@@ -9520,9 +9520,13 @@ h3 {
 /******************************/
 /***         BASIC          ***/
 /******************************/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: #fff;
+  background: #FFFFFF;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
@@ -9554,11 +9558,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .bg-light {
-  background: #f8f9fa !important;
+  background: #F8F9FA !important;
 }
 
 .bg-dark {
-  background: #3c312e;
+  background: #23202B;
 }
 
 .no-pt {
@@ -9577,7 +9581,7 @@ h1, h2, h3, h4, h5 {
 }
 .intro h2 {
   font-weight: 700;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 34px;
 }
 .intro span.contact-number {
@@ -9615,32 +9619,33 @@ h1, h2, h3, h4, h5 {
 /******************************/
 /***        NAV BAR         ***/
 /******************************/
-.navbar-dark {
-  background: #21B2BF !important;
+.navbar {
   z-index: 3;
   padding: 0;
+  transition: 0.2s ease-in-out;
 }
 @media (max-width: 991.98px) {
-  .navbar-dark {
-    background: #000000 !important;
-    position: relative;
-    top: 0;
+  .navbar {
     padding: 10px 15px;
   }
 }
+.navbar .navbar-toggler {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 40px;
+}
+.navbar .navbar-brand img {
+  height: 40px;
+}
 @media (max-width: 991.98px) {
-  .navbar-dark .navbar-nav {
+  .navbar .navbar-nav {
     padding-bottom: 10px;
   }
 }
-.navbar-dark .navbar-nav > .nav-item > .nav-link {
+.navbar .navbar-nav > .nav-item > .nav-link {
   font-size: 14px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 1.5rem 20px;
   font-weight: 600;
-  color: #fff;
   text-transform: uppercase;
   letter-spacing: 2px;
   position: relative;
@@ -9648,15 +9653,43 @@ h1, h2, h3, h4, h5 {
   /* Animate an underline below the hovered nav-link. */
 }
 @media (max-width: 991.98px) {
-  .navbar-dark .navbar-nav > .nav-item > .nav-link {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
-    color: rgba(255, 255, 255, 0.7);
+  .navbar .navbar-nav > .nav-item > .nav-link {
+    padding: 0.7rem 0;
   }
+}
+.navbar .navbar-nav > .nav-item > .nav-link:before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.navbar .navbar-nav > .nav-item > .nav-link:hover:before {
+  width: 100%;
+}
+
+.navbar-dark {
+  background: #23202B !important;
+}
+.navbar-dark .navbar-toggler {
+  color: #BABABA;
+}
+.navbar-dark .navbar-toggler:hover {
+  color: #FFFFFF;
+}
+.navbar-dark .navbar-nav > .nav-item > .nav-link {
+  color: #BABABA;
+}
+@media (max-width: 991.98px) {
   .navbar-dark .navbar-nav > .nav-item > .nav-link:hover {
-    color: #fff;
+    color: #FFFFFF;
   }
 }
 @media (max-width: 767.98px) {
@@ -9665,33 +9698,13 @@ h1, h2, h3, h4, h5 {
   }
 }
 .navbar-dark .navbar-nav > .nav-item > .nav-link:before {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #BABABA;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  background: #FFFFFF;
 }
 .navbar-dark .navbar-nav > .nav-item > .nav-link:hover {
-  color: #BABABA;
-}
-.navbar-dark .navbar-nav > .nav-item > .nav-link:hover:before {
-  width: 100%;
+  color: #FFFFFF;
 }
 .navbar-dark .navbar-nav > .nav-item.active > a {
-  color: #BABABA;
-}
-@media (max-width: 991.98px) {
-  .navbar-dark .navbar-nav > .nav-item.active > a {
-    color: #fff;
-  }
+  color: #FFFFFF;
 }
 
 /******************************/
@@ -9705,7 +9718,7 @@ h1, h2, h3, h4, h5 {
 
 .feature-card {
   width: 100%;
-  background: #fff;
+  background: #FFFFFF;
   padding: 20px;
   position: relative;
   border-radius: 4px;
@@ -9778,7 +9791,7 @@ h1, h2, h3, h4, h5 {
   color: rgba(0, 0, 0, 0.7) !important;
 }
 .subscribe-form .form-group .submit {
-  color: #fff !important;
+  color: #FFFFFF !important;
   background: #198994 !important;
   border-radius: 0px 5px 5px 0px;
   font-size: 16px;
@@ -9796,7 +9809,7 @@ h1, h2, h3, h4, h5 {
 
 .form-control {
   height: 52px !important;
-  background: #fff !important;
+  background: #FFFFFF !important;
   color: #000000 !important;
   font-size: 18px;
   border-radius: 5px;
@@ -9824,7 +9837,7 @@ textarea.form-control {
   font-weight: 800 !important;
   line-height: 1;
   margin-bottom: 40px;
-  color: #fff;
+  color: #FFFFFF;
 }
 .footer .main-text span {
   color: #21B2BF;
