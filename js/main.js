@@ -54,19 +54,18 @@
     }
 
     $('.nav-link').click(function() {
-      // Automatically collapse the nav bar.
-      if (!$('.navbar-toggler').hasClass('collapsed')) {
-        $('.navbar-toggler').click();
-      }
-
       // We can't scroll below the bottom of the page.
       var scrollSetpoint = Math.ceil(Math.min($($(this).data('href')).offset().top,        // Position of target
                                               $(document).height() - $(window).height())); // Bottom of page
-      // Deduct height of the collapsible section of the nav bar, which hasn't 
-      // been collapsed yet, but is currently in the process of being collapsed.
-      // NOTE: It takes some time for Bootstrap to process the click (above), and we
-      //       don't want to wait for that to complete before starting scrolling.
-      scrollSetpoint -= $('.navbar-collapse').height();
+      if (!$('.navbar-toggler').hasClass('collapsed')) {
+        // Since the nav bar will be automatically collapsed simulataneously while
+        // scrolling, deduct height of the collapsible section of the nav bar, which
+        // hasn't been collapsed yet, but is going to be by the time we finish scrolling.
+        scrollSetpoint -= $('.navbar-collapse').height();
+
+        // Automatically collapse the nav bar.
+        $('.navbar-toggler').click();
+      }
 
       // Hide the nav bar until reaching the target.
       forceHideNavBar = true;
