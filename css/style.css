@@ -9511,6 +9511,14 @@ h3 {
     border-color: #dee2e6;
   }
 }
+@font-face {
+  font-family: "Gotham Bold";
+  src: url("../fonts/gotham-bold/Gotham-Bold.woff") format("woff"), url("../fonts/gotham-bold/Gotham-Bold.ttf") format("ttf");
+}
+@font-face {
+  font-family: "Gotham Book";
+  src: url("../fonts/gotham-book/Gotham-Book.woff") format("woff"), url("../fonts/gotham-book/Gotham-Book.ttf") format("ttf");
+}
 /******************************/
 /***         VARS           ***/
 /******************************/
@@ -9525,11 +9533,11 @@ html {
 }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
+  font-family: "Gotham Book", Arial, sans-serif;
   background: #FFFFFF;
   font-size: 16px;
-  line-height: 1.8;
   font-weight: 400;
+  line-height: 1.8;
   color: gray;
 }
 
@@ -9544,9 +9552,10 @@ a:hover, a:focus {
 }
 
 h1, h2, h3, h4, h5 {
+  font-family: "Gotham Bold", Arial, sans-serif;
+  font-weight: 400;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
-  font-weight: 400;
 }
 
 .bg-primary {
@@ -9583,12 +9592,6 @@ h1, h2, h3, h4, h5 {
   font-weight: 700;
   color: #FFFFFF;
   font-size: 34px;
-}
-.intro span.contact-number {
-  font-size: 40px;
-  color: #BABABA;
-  font-weight: 700;
-  font-family: "Lato", Arial, sans-serif;
 }
 
 .heading-section h2 {

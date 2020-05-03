@@ -1,11 +1,12 @@
 @import 'bootstrap/bootstrap';
+@import 'fonts';
 
 /******************************/
 /***         VARS           ***/
 /******************************/
 
-$font-primary: 'Poppins',Arial, sans-serif;
-$font-secondary: 'Lato',Arial, sans-serif;
+$font-headings: 'Gotham Bold', Arial, sans-serif;
+$font-body: 'Gotham Book', Arial, sans-serif;
 
 $white: #FFFFFF;
 $black: #000000;
@@ -50,11 +51,11 @@ html {
 }
 
 body {
-  font-family: $font-primary;
+  font-family: $font-body;
   background: $white;
   font-size: 16px;
-  line-height: 1.8;
   font-weight: 400;
+  line-height: 1.8;
   color: lighten($black,50%);
 }
 
@@ -69,9 +70,10 @@ a {
 }
 
 h1, h2, h3, h4, h5 {
+  font-family: $font-headings;
+  font-weight: 400;
   line-height: 1.5;
   color: rgba(0,0,0,.8);
-  font-weight: 400;
 }
 
 .bg-primary{
@@ -109,12 +111,6 @@ h1, h2, h3, h4, h5 {
     font-weight: 700;
     color: $white;
     font-size: 34px;
-  }
-  span.contact-number {
-    font-size: 40px;
-    color: $secondary;
-    font-weight: 700;
-    font-family: $font-secondary;
   }
 }
 
