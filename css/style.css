@@ -11354,7 +11354,7 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.animate {
+.animate, .home-animate {
   opacity: 0;
   visibility: hidden;
 }

@@ -5,14 +5,23 @@
   $(function() {
 
     /****************************************/
-    /***             SPINNER              ***/
+    /***             ON LOAD              ***/
     /****************************************/
 
-    // Remove the spinner when the page is loaded.
     $(window).on('load', function() {
+      // Remove the spinner when the page is loaded.
       if ($('.spinner')) {
         $('.spinner').removeClass('show');
       }
+
+      // Animate the home page elements.
+      $('body .home-animate').each(function() {
+        var el = $(this);
+        var delay = el.data('animate-delay');
+        setTimeout(function () {
+          el.addClass('fadeInUp animated');
+        },  delay);
+      });
     });
 
 
@@ -128,16 +137,7 @@
           $('body .animate.item-animate').each(function(k) {
             var el = $(this);
             setTimeout(function () {
-              var effect = el.data('animate-effect');
-              if ( effect === 'fadeIn') {
-                el.addClass('fadeIn animated');
-              } else if ( effect === 'fadeInLeft') {
-                el.addClass('fadeInLeft animated');
-              } else if ( effect === 'fadeInRight') {
-                el.addClass('fadeInRight animated');
-              } else {
-                el.addClass('fadeInUp animated');
-              }
+              el.addClass('fadeInUp animated');
               el.removeClass('item-animate');
             },  k * 50);
           });
