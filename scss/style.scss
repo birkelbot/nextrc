@@ -145,6 +145,9 @@ h1, h2, h3, h4, h5 {
     padding-top: 0;
     padding-bottom: 0;
     height: 40px;
+    &:hover {
+      color: $teal;
+    }
   }
 
   .navbar-brand {
@@ -183,9 +186,16 @@ h1, h2, h3, h4, h5 {
           @include transition(.3s);
         }
         &:hover {
-          &:before{
+          color: $teal;
+          &:before {
             width: 100%;
           }
+        }
+      }
+
+      &.active {
+        > a {
+          color: $teal;
         }
       }
     }
@@ -197,9 +207,6 @@ h1, h2, h3, h4, h5 {
 
   .navbar-toggler {
     color: $grey;
-    &:hover {
-      color: $white;
-    }
   }
 
   .navbar-nav {
@@ -208,25 +215,13 @@ h1, h2, h3, h4, h5 {
         color: $grey;
 
         @include media-breakpoint-down(md) {
-          &:hover{
-            color: $white;
-          }
-        }
-        @include media-breakpoint-down(sm) {
           border-bottom: 1px solid rgba(255,255,255,.2);
         }
 
-        &:before {
-          background: $white;
-        }
         &:hover {
-          color: $white;
-        }
-      }
-
-      &.active {
-        > a {
-          color: $white;
+          &:before {
+            background: $grey;
+          }
         }
       }
     }
