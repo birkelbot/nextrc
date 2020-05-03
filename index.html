@@ -285,6 +285,27 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     
+    <!-- Filters -->
+    <!-- NOTE: Currently unused, but may be useful for experimentation. -->
+    <svg>
+      <filter id="monochrome-teal" color-interpolation-filters="sRGB"
+              x="0" y="0" height="100%" width="100%">
+        <feColorMatrix type="matrix"
+          values="0.89 0 0 0 0.11
+                  0.39 0 0 0 0.61 
+                  0.35 0 0 0 0.65
+                  0    0 0 1 0" />
+      </filter>
+      <filter id="wash-teal">
+        <feColorMatrix
+          type="matrix"
+          values="0.8 0.4 0    1.9 -2.2
+                  0   1   0    0    0.2
+                  0   0   0.7 -0.4  0.7
+                  0   0   0    1    0 "/>
+      </filter>
+    </svg>
+
   </body>
 
 </html>
